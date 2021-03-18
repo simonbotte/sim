@@ -1,6 +1,6 @@
 /* Bottom Menu */
 .bottomMenu {
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     height: 75px;
@@ -9,8 +9,8 @@
     position: fixed;
     bottom: 0;
     width: 100vw;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     background: rgba(50, 50, 50, 0.6);
 }
 
@@ -23,8 +23,8 @@
     width: 100vw;
     padding: 20px;
     height: 75px;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     background: rgba(50, 50, 50, 0.6);
 }
 .topMenu svg {

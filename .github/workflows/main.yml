@@ -23,6 +23,8 @@ jobs:
                       - var/*
                       - var/**
                       - var*/**
+                      - var**/*
                       - vendor/*
                       - vendor/**
                       - vendor*/**
+                      - vendor/**/*
