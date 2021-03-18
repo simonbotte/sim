@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}SIM{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/map.css') }}" rel="stylesheet">
+            
+            <link rel="stylesheet" href="https://use.typekit.net/kjj6fvl.css">
+            
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
+            <script src="{{ asset('assets/js/map.js') }}" defer></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'map/_partial/topMenu.html.twig' %}
+        {% block main %}{% endblock %}
+        {% include 'map/_partial/bottomMenu.html.twig' %}
+    </body>
+</html>

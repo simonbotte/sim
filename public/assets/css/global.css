@@ -1,0 +1,27 @@
+* {
+    font-family: "europa", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+#wrapper {
+    width: 100%;
+    max-width: 375px;
+    height: 812px;
+    margin: 0 auto;
+}
+
+.btnPrimary {
+    font-size: 20px;
+    padding: 8px 30px;
+    background: #ffc225;
+    border: none;
+    color: white;
+}

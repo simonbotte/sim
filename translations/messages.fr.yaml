@@ -1,0 +1,13 @@
+app:
+    name: "sim"
+account:
+    register: "Inscription"
+    alreadyRegister: "Déjà inscrit ?"
+    notRegister: "Pas encore inscrit ?"
+    phone: "Télephone"
+    email: "Email"
+    password: "Mot de passe"
+    emptyPassword: "Veuillez entrer un mot de passe"
+    notLongPassword: "Votre mot de passe doit contenir au moins 8 caracteres"
+    login: "Connexion"
+    name: "Nom"

@@ -1,0 +1,68 @@
+/* Bottom Menu */
+.bottomMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    padding: 20px;
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    background: rgba(50, 50, 50, 0.6);
+}
+
+/* Top Menu */
+.topMenu {
+    position: fixed;
+
+    top: 0px;
+    z-index: 2;
+    width: 100vw;
+    padding: 20px;
+    height: 75px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    background: rgba(50, 50, 50, 0.6);
+}
+.topMenu svg {
+    position: absolute;
+    top: 25px;
+    left: 24px;
+    height: 24px;
+    fill: rgba(50, 50, 50, 1);
+}
+.topMenu input {
+    width: 300px;
+    padding: 5px 10px 5px 35px;
+
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    font-size: 15px;
+    color: rgba(50, 50, 50, 1);
+}
+
+.topMenu input:focus {
+    outline: none;
+}
+
+.mapSearchResults {
+    position: absolute;
+    left: 0;
+    top: 75px;
+    background: rgba(50, 50, 50, 0.6);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    max-height: 80vh;
+    overflow: auto;
+}
+.mapSearchResultsItem {
+    padding: 5px 15px;
+    width: 100vw;
+}
+.mapSearchResultsItem span {
+    color: white;
+}

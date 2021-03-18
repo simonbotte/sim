@@ -1,0 +1,30 @@
+{% extends 'layout/account.html.twig' %}
+
+{% block title %}{{ 'account.register'|trans }}{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="logoContainer">
+        <img src="{{asset('assets/image/logo.svg')}}">
+    </div>
+    <div class="login__form">
+        
+
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.name) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            {{ form_row(registrationForm.phone) }}
+            
+
+            <button type="submit" class="btn btnPrimary">{{ 'account.register'|trans }}</button>
+        {{ form_end(registrationForm) }}
+    </div>
+    <div class="login__extra">
+        <span>{{ 'account.alreadyRegister'|trans }}</span>
+
+        <a href="{{url('app_login')}}" class="btn btnPrimary">{{ 'account.login'|trans }}</a>
+    </div>
+{% endblock %}
