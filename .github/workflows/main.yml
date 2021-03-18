@@ -22,3 +22,5 @@ jobs:
                       - .git*/**
                       - var/*
                       - var/**
+                      - vendor/*
+                      - vendor/**
