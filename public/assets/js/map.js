@@ -15,6 +15,15 @@ function setMapToUserPos() {
             new mapkit.CoordinateSpan(0.02, 0.02)
         );
         // Create map on the id 'map'
+        // Add the new annotation
+        var myAnnotation = new mapkit.MarkerAnnotation(
+            new mapkit.Coordinate(parseFloat(geoloc[0]), parseFloat(geoloc[1])),
+            {
+                color: "#ffc225",
+                title: "vous êtes ici",
+            }
+        );
+        map.addAnnotation(myAnnotation);
 
         map.region = myRegion;
     }
