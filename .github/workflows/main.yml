@@ -13,8 +13,12 @@ jobs:
                   composer install
 
             - name: 📂 Sync files
-              uses: SamKirkland/FTP-Deploy-Action@4.0.0
+              uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
               with:
-                  server: 5u6q7.ftp.infomaniak.com
-                  username: 5u6q7_sim123klm
-                  password: ${{ secrets.ftp_password }}
+                  ftp_host: 5u6q7.ftp.infomaniak.com
+                  ftp_username: 5u6q7_sim123klm
+                  ftp_password: ${{ secrets.ftp_password }}
+                  local_source_dir: ""
+                  dist_target_dir: ""
+                  delete: "false"
+                  exclude: "'^logs/' '^README.md'"
