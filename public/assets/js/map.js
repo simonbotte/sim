@@ -29,18 +29,7 @@ function setMapToUserPos() {
         navigator.geolocation.getCurrentPosition(success, error);
     }
 }
-function adaptMapKitControls() {
-    const top_right = document.querySelector(".mk-controls-container");
 
-    if (document.body.clientWidth < 413) {
-        top_right.style.top = "100px";
-        top_right.style.heigth = "calc(100vh - 100px)";
-    } else {
-        top_right.style.top = "9px";
-        top_right.style.heigth = "calc(100vh)";
-    }
-}
-console.log("toto");
 // Initialise MapKit
 mapkit.init({
     authorizationCallback: function (done) {
@@ -56,8 +45,7 @@ var myRegion = new mapkit.CoordinateRegion(
 var map = new mapkit.Map("map");
 map.region = myRegion;
 
-//adaptMapKitControls();
-//window.addEventListener("resize", adaptMapKitControls);
+setMapToUserPos();
 // Listen for keyup in the input field
 mapLookup.addEventListener("keyup", function () {
     // Make sure it's not a zero length string
