@@ -70,6 +70,8 @@ function initSuccess(requestedStream) {
         video.setAttribute("height", screenHeight);
         video.play();
     };
+
+    window.scroll(1000);
 }
 function clearphoto() {
     var context = canvas.getContext("2d");
