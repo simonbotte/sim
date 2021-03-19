@@ -18,3 +18,7 @@ jobs:
                   server: 5u6q7.ftp.infomaniak.com
                   username: 5u6q7_sim123klm
                   password: ${{ secrets.ftp_password }}
+
+            - name: 🔨 Last Project
+              run: |
+                  composer install
