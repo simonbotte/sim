@@ -9,6 +9,11 @@ video {
 img {
     max-width: 100%;
 }
+.camera {
+    height: calc(100vh - 75px);
+    background: rgba(50, 50, 50, 0.6);
+    margin-bottom: 75px;
+}
 .camera__controls {
     display: flex;
 }
@@ -35,11 +40,6 @@ img {
     position: absolute;
     right: 0;
     height: 65px;
-}
-.camera {
-    height: calc(100vh - 150px);
-    background: rgba(50, 50, 50, 0.6);
-    margin: 75px 0;
 }
 
 #camera__output {

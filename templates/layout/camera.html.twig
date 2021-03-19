@@ -10,7 +10,7 @@
             <link href="{{ asset('assets/css/camera.css') }}" rel="stylesheet">
             
             <link rel="stylesheet" href="https://use.typekit.net/kjj6fvl.css">
-            <meta name="apple-mobile-web-app-capable" content="yes">
+            
         {% endblock %}
 
         {% block javascripts %}
@@ -18,7 +18,6 @@
         {% endblock %}
     </head>
     <body>
-        {% include '/_partial/menu/topMenu.html.twig' %}
         {% block main %}{% endblock %}
         {% include '/_partial/menu/bottomMenu.html.twig' %}
     </body>

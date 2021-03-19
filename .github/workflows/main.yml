@@ -21,4 +21,4 @@ jobs:
 
             - name: 🔨 Last Project
               run: |
-                  composer install
+                  composer update
