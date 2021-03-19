@@ -1,0 +1,51 @@
+canvas {
+    display: none;
+}
+
+video {
+    max-width: 100vw;
+    background: red;
+}
+img {
+    max-width: 100%;
+}
+.camera__controls {
+    display: flex;
+}
+#camera__takaPicture {
+    height: 65px;
+    width: 65px;
+    border: 2px solid white;
+    border-radius: 100%;
+    margin: 20px auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#camera__takaPicture .camera__takaPictureInside {
+    height: 55px;
+    width: 55px;
+    background: white;
+    border-radius: 100%;
+}
+#camera__changeCamera {
+    margin: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    height: 65px;
+}
+.camera {
+    height: calc(100vh - 150px);
+    background: rgba(50, 50, 50, 0.6);
+    margin: 75px 0;
+}
+
+#camera__output {
+    position: absolute;
+    top: 75px;
+    width: 100vw;
+    height: calc(100vh - 150px);
+    display: none;
+}

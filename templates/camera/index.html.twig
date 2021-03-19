@@ -1,0 +1,24 @@
+{% extends 'layout/camera.html.twig' %}
+
+{% block title %}{{ 'app.name'|trans }}{% endblock %}
+
+{% block main %}
+        <div class="camera">
+            <video id="video" playsinline>Video stream not available.</video>
+            <div class="camera__controls">
+                <div id="camera__takaPicture">
+                    <div class="camera__takaPictureInside"></div>
+                </div>
+                <div id="camera__changeCamera">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25.813" height="27.438" viewBox="0 0 25.813 27.438">
+                        <path id="exchange-alt-solid" d="M22.188,2.281,20.781,3.719,25.063,8H4v2H25.063l-4.281,4.281,1.406,1.438L28.906,9Zm-12.375,14L3.094,23l6.719,6.719,1.406-1.437L6.938,24H28V22H6.938l4.281-4.281Z" transform="translate(-3.094 -2.281)" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+            
+        </div>
+        <canvas id="canvas"></canvas>
+        <div id="camera__output">
+            <img id="photo" alt="The screen capture will appear in this box."> 
+        </div>
+{% endblock %}

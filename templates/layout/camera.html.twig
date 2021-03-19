@@ -7,16 +7,14 @@
         {% block stylesheets %}
             <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
             <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet">
-            <link href="{{ asset('assets/css/map.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/camera.css') }}" rel="stylesheet">
             
             <link rel="stylesheet" href="https://use.typekit.net/kjj6fvl.css">
             
         {% endblock %}
 
         {% block javascripts %}
-            <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
-            <script src="{{ asset('assets/js/map.js') }}" defer></script>
-            <script src="{{ asset('assets/js/app.js') }}" defer></script>
+            <script src="{{ asset('assets/js/camera.js') }}" defer></script>
         {% endblock %}
     </head>
     <body>
