@@ -6,6 +6,6 @@
 }
 .mk-controls-container {
     top: 50% !important;
-    transform: translateY(-50%);
-    height: calc(100vh - 150px);
+    transform: translateY(calc(-50% + 5px));
+    height: calc(100vh - 135px);
 }

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 75px;
+    height: 60px;
     padding: 20px;
     z-index: 3;
     position: fixed;
@@ -13,7 +13,9 @@
     -webkit-backdrop-filter: blur(10px);
     background: rgba(50, 50, 50, 0.6);
 }
-
+.bottomMenu svg {
+    width: 25px;
+}
 /* Top Menu */
 .topMenu {
     position: fixed;

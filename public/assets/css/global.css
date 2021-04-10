@@ -25,3 +25,15 @@ a {
     border: none;
     color: white;
 }
+
+.bg {
+    /* -60px to not superpose with the bottom menu */
+    height: calc(100vh - 60px);
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(50, 50, 50, 0.6);
+}

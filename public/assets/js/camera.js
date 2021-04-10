@@ -1,4 +1,4 @@
-const cameraWidth = 720;
+const cameraWidth = 1080;
 const cameraHeight = (cameraWidth * 3) / 4;
 
 const screenWidth = getWidth();
@@ -13,6 +13,8 @@ var photo = null;
 var startbutton = null;
 
 video = document.getElementById("video");
+videoBg = document.getElementById("video_bg");
+console.log(videoBg);
 canvas = document.getElementById("canvas");
 photo = document.getElementById("photo");
 output = document.getElementById("camera__output");
@@ -58,6 +60,14 @@ navigator.mediaDevices
 
 function initSuccess(requestedStream) {
     // Older browsers may not have srcObject
+    if ("srcObject" in videoBg) {
+        videoBg.srcObject = requestedStream;
+    } else {
+        // Avoid using this in new browsers, as it is going away.
+        videoBg.src = window.URL.createObjectURL(stream);
+    }
+
+    // Older browsers may not have srcObject
     if ("srcObject" in video) {
         video.srcObject = requestedStream;
     } else {
@@ -71,7 +81,11 @@ function initSuccess(requestedStream) {
         video.play();
     };
 
-    window.scroll(1000);
+    videoBg.onloadedmetadata = function (e) {
+        videoBg.setAttribute("width", getWidth());
+        videoBg.setAttribute("height", getHeigth());
+        videoBg.play();
+    };
 }
 function clearphoto() {
     var context = canvas.getContext("2d");
@@ -110,3 +124,14 @@ function getWidth() {
         document.documentElement.clientWidth
     );
 }
+function getHeigth() {
+    return Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.documentElement.clientHeight
+    );
+}
+
+console.log(getHeigth());
