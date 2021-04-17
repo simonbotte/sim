@@ -49,13 +49,14 @@ img {
 }
 
 #camera__output {
-    position: absolute;
-    top: 75px;
+    position: fixed;
+    bottom: 60px;
     width: 100vw;
-    height: calc(100vh - 150px);
     display: none;
 }
-
+#camera__output img {
+    object-fit: contain;
+}
 .camera_bg {
     height: 100vh;
     width: 100vw;
@@ -66,4 +67,20 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+.camera__outputMenu {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(50, 50, 50, 0.6);
+}
+.camera__outputMenu .cancel {
+    color: white;
+}
+.camera__outputMenu .publish {
+    color: var(--brand-orange);
 }

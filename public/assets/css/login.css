@@ -21,7 +21,7 @@ input {
 }
 
 input:focus {
-    border-color: #ffc225;
+    border-color: var(--brand-orange);
     outline: none;
 }
 .login__form,

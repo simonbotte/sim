@@ -1,0 +1,16 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}{{ 'app.name'|trans }}{% endblock %}
+
+{% block body %}
+        <section class="post_container">
+          <h1>Posts</h1>
+          <div class="posts">
+          {% for post in posts %}
+            <div class="post">
+              <img src="{{post.image}}">
+            </div>
+          {% endfor %}
+          </div>
+        </section>
+{% endblock %}

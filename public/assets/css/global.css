@@ -1,6 +1,7 @@
 * {
     font-family: "europa", sans-serif;
     box-sizing: border-box;
+    --brand-orange: #ffc225;
 }
 
 body {
@@ -21,7 +22,7 @@ a {
 .btnPrimary {
     font-size: 20px;
     padding: 8px 30px;
-    background: #ffc225;
+    background: var(--brand-orange);
     border: none;
     color: white;
 }
@@ -33,7 +34,7 @@ a {
     position: fixed;
     top: 0;
     width: 100vw;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     background: rgba(50, 50, 50, 0.6);
 }

@@ -11,3 +11,6 @@ account:
     notLongPassword: "Votre mot de passe doit contenir au moins 8 caracteres"
     login: "Connexion"
     name: "Nom"
+camera:
+    cancel: "Annuler"
+    publish: "Publier"

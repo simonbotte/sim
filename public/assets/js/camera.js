@@ -1,4 +1,4 @@
-const cameraWidth = 1080;
+const cameraWidth = 720;
 const cameraHeight = (cameraWidth * 3) / 4;
 
 const screenWidth = getWidth();
@@ -7,20 +7,16 @@ const screenHeight = (screenWidth * 4) / 3;
 const canvasWidth = getWidth() * 4;
 const canvasHeight = (canvasWidth * 4) / 3;
 
-var video = null;
-var canvas = null;
-var photo = null;
-var startbutton = null;
+let video = document.getElementById("video");
+let videoBg = document.getElementById("video_bg");
 
-video = document.getElementById("video");
-videoBg = document.getElementById("video_bg");
-console.log(videoBg);
-canvas = document.getElementById("canvas");
-photo = document.getElementById("photo");
-output = document.getElementById("camera__output");
-startbutton = document.getElementById("camera__takaPicture");
-
-var constraints = {
+let canvas = document.getElementById("canvas");
+let photo = document.getElementById("photo");
+let output = document.getElementById("camera__output");
+let startButton = document.getElementById("camera__takaPicture");
+let cancelButton = document.querySelector(".cancel");
+let publishButton = document.querySelector(".publish");
+let constraints = {
     audio: false,
     video: {
         width: { min: cameraWidth, max: cameraWidth },
@@ -28,6 +24,7 @@ var constraints = {
         facingMode: "environment",
     },
 };
+let imageData64 = "";
 
 if (typeof navigator.mediaDevices === "undefined") {
     navigator.mediaDevices = {};
@@ -35,7 +32,7 @@ if (typeof navigator.mediaDevices === "undefined") {
 if (typeof navigator.mediaDevices.getUserMedia === "undefined") {
     navigator.mediaDevices.getUserMedia = function (constraints) {
         // First get ahold of the legacy getUserMedia, if present
-        var getUserMedia =
+        let getUserMedia =
             navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
         // Some browsers just don't implement it - return a rejected promise with an error
         // to keep a consistent interface
@@ -88,32 +85,29 @@ function initSuccess(requestedStream) {
     };
 }
 function clearphoto() {
-    var context = canvas.getContext("2d");
+    let context = canvas.getContext("2d");
     context.fillStyle = "#AAA";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    var data = canvas.toDataURL("image/png");
+    let data = canvas.toDataURL("image/png");
+    imageData64 = data;
     photo.setAttribute("src", data);
 }
 
 function takepicture() {
-    var context = canvas.getContext("2d");
+    let context = canvas.getContext("2d");
     if (screenHeight && screenWidth) {
         canvas.width = canvasWidth;
         canvas.height = canvasHeight;
         context.drawImage(video, 0, 0, canvasWidth, canvasHeight);
 
-        var data = canvas.toDataURL("image/png");
-        photo.setAttribute("src", data);
-        output.style.display = "flex";
+        let data = canvas.toDataURL("image/png");
+
+        displayOutput(data);
     } else {
         clearphoto();
     }
 }
-
-startbutton.addEventListener("click", () => {
-    takepicture();
-});
 
 function getWidth() {
     return Math.max(
@@ -134,4 +128,83 @@ function getHeigth() {
     );
 }
 
-console.log(getHeigth());
+function displayOutput(src) {
+    output.style.display = "flex";
+    output.style.zIndex = "10";
+    output.style.height = screenHeight + "px";
+    photo.setAttribute("src", src);
+}
+function hideOutput() {
+    output.style.display = "none";
+    output.style.zIndex = "-1";
+    output.style.height = "0px";
+    photo.removeAttribute("src");
+}
+
+function ajaxPost(pos, img) {
+    // let data = {
+    //     lat: pos.lat,
+    //     lon: pos.lon,
+    //     img: 345,
+    // };
+
+    // console.log(JSON.stringify(data, true));
+
+    // let request = new XMLHttpRequest();
+    // request.open("POST", window.location.href, true);
+    // request.setRequestHeader(
+    //     "Content-Type",
+    //     "application/x-www-form-urlencoded; charset=UTF-8"
+    // );
+    // request.send(JSON.stringify(data, true));
+
+    let httpRequest = new XMLHttpRequest();
+    let data = new FormData();
+
+    data.append("lat", pos.lat);
+    data.append("lon", pos.lon);
+    data.append("img", img);
+
+    httpRequest.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText); // Display the result inside result element.
+        }
+    };
+
+    httpRequest.open("POST", window.location.href);
+    httpRequest.send(data);
+}
+
+startButton.addEventListener("click", () => {
+    takepicture();
+});
+
+cancelButton.addEventListener("click", () => {
+    hideOutput();
+});
+
+publishButton.addEventListener("click", () => {
+    postPicture();
+});
+
+function postPicture() {
+    function success(position) {
+        let geoloc = {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+        };
+        console.log(window.location.href);
+        let img = canvas.toDataURL("image/png");
+        ajaxPost(geoloc, img);
+    }
+
+    function error() {
+        console.log("error");
+    }
+
+    if (!navigator.geolocation) {
+        console.log("You broser does not support geoloc");
+    } else {
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
+}
