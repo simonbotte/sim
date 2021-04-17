@@ -1,4 +1,4 @@
-const cameraWidth = 720;
+const cameraWidth = 1080;
 const cameraHeight = (cameraWidth * 3) / 4;
 
 const screenWidth = getWidth();
